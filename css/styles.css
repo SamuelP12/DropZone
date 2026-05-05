@@ -450,16 +450,45 @@ a.tile { cursor: pointer; }
 
 /* --- Stat tiles --- */
 .tile-stat-num {
-    font-size: clamp(56px, 6vw, 88px);
+    font-size: clamp(48px, 4.6vw, 72px);
     font-weight: 600;
-    letter-spacing: -0.045em;
+    letter-spacing: -0.04em;
     line-height: 0.95;
     margin: auto 0;
     color: var(--ink);
     font-feature-settings: 'tnum' 1, 'ss03' 1;
+    white-space: nowrap;
 }
 .tile-stat-num .slash { color: var(--ink-3); margin: 0 -2px; font-weight: 400; }
-.tile-stat-num .up { color: var(--ink-2); }
+
+/* Wifi tile uses a stacked down/up layout instead of one big number */
+.speed-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: auto 0 4px;
+}
+.speed-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+.speed-num {
+    font-size: clamp(38px, 3.4vw, 50px);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 1;
+    color: var(--ink);
+    font-feature-settings: 'tnum' 1, 'ss03' 1;
+    min-width: 1.6em;
+}
+.speed-row:nth-child(2) .speed-num { color: var(--ink-2); }
+.speed-unit {
+    font-size: 12.5px;
+    color: var(--ink-3);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
 
 /* --- Amenities mini list --- */
 .amenity-mini {
@@ -787,6 +816,19 @@ a.tile { cursor: pointer; }
     max-width: 60ch;
 }
 .faq-list details p a { color: var(--accent); }
+
+.faq-footer {
+    max-width: 780px;
+    margin: 32px auto 0;
+    text-align: center;
+    color: var(--ink-3);
+    font-size: 14px;
+}
+.faq-footer a {
+    color: var(--accent);
+    transition: color 0.3s;
+}
+.faq-footer a:hover { color: var(--accent-2); }
 
 @media (max-width: 640px) {
     .faq-list { padding: 0 24px; }
