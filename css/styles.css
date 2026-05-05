@@ -223,11 +223,11 @@ html.lenis, html.lenis body { height: auto; }
 
 .hero {
     position: relative;
-    min-height: 100vh;
-    min-height: 100svh;
+    min-height: 92vh;
+    min-height: 92svh;
     display: flex;
     align-items: center;
-    padding: 140px var(--pad-x) 80px;
+    padding: 140px var(--pad-x) 64px;
     overflow: hidden;
     isolation: isolate;
 }
@@ -404,7 +404,13 @@ a.tile { cursor: pointer; }
 .tile-outdoor   { grid-area: outdoor; min-height: 380px; }
 .tile-wifi      { grid-area: wifi; }
 .tile-amenities { grid-area: amen; }
-.tile-conference { grid-area: conf; }
+.tile-conference {
+    grid-area: conf;
+    background: linear-gradient(135deg, var(--accent-soft) 0%, var(--tile) 75%);
+}
+.tile-conference .tile-label { color: var(--accent); }
+.tile-conference .link-arrow { color: var(--accent); }
+.tile-conference:hover { background: linear-gradient(135deg, var(--accent-soft) 0%, var(--tile) 60%); }
 
 /* --- Featured pricing tile (navy) --- */
 .tile-featured {
@@ -459,35 +465,46 @@ a.tile { cursor: pointer; }
     font-feature-settings: 'tnum' 1, 'ss03' 1;
     white-space: nowrap;
 }
-.tile-stat-num .slash { color: var(--ink-3); margin: 0 -2px; font-weight: 400; }
+.tile-stat-num .slash { color: var(--accent); margin: 0 -2px; font-weight: 400; opacity: 0.85; }
 
-/* Wifi tile uses a stacked down/up layout instead of one big number */
-.speed-stack {
+/* Wifi tile: down + up rows with arrow + number + unit, blue download */
+.speed-list {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    margin: auto 0 4px;
+    gap: 18px;
+    margin: auto 0;
+    flex: 1;
+    justify-content: center;
 }
 .speed-row {
     display: flex;
     align-items: baseline;
-    gap: 10px;
+    gap: 12px;
 }
+.speed-arrow {
+    font-size: 22px;
+    line-height: 1;
+    color: var(--accent);
+    font-weight: 400;
+    align-self: center;
+}
+.speed-row.up .speed-arrow { color: var(--ink-3); }
 .speed-num {
-    font-size: clamp(38px, 3.4vw, 50px);
+    font-size: clamp(40px, 3.8vw, 54px);
     font-weight: 600;
     letter-spacing: -0.035em;
     line-height: 1;
-    color: var(--ink);
+    color: var(--accent);
     font-feature-settings: 'tnum' 1, 'ss03' 1;
-    min-width: 1.6em;
 }
-.speed-row:nth-child(2) .speed-num { color: var(--ink-2); }
+.speed-row.up .speed-num { color: var(--ink-2); }
 .speed-unit {
-    font-size: 12.5px;
+    font-size: 13px;
     color: var(--ink-3);
     font-weight: 500;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.005em;
+    align-self: center;
+    margin-left: auto;
 }
 
 /* --- Amenities mini list --- */
