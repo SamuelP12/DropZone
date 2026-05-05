@@ -177,11 +177,30 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 6px 32px;
-            margin: 0 0 22px;
+            margin: 0 0 16px;
             padding: 18px 22px;
             background: rgba(37,99,235,0.04);
             border-radius: 14px;
         }
+
+        /* Highlight strip — fills the gap between features and footer */
+        .highlight {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            background: var(--ink);
+            color: #fff;
+            border-radius: 14px;
+            padding: 16px 22px;
+            margin: 0 0 18px;
+            font-size: 11pt;
+            font-weight: 500;
+            letter-spacing: -0.005em;
+            text-align: center;
+        }
+        .highlight .sep { color: rgba(255,255,255,0.35); font-weight: 300; }
+        .highlight strong { font-weight: 600; }
         .features li {
             list-style: none;
             font-size: 11pt;
@@ -209,7 +228,6 @@
 
         /* Footer block */
         .footer {
-            margin-top: auto;
             display: grid;
             grid-template-columns: 1fr auto;
             gap: 32px;
@@ -295,7 +313,8 @@
 <body>
 
     <div class="print-bar">
-        <a href="photo.html"><button>With photo →</button></a>
+        <a href="photo.html"><button>Stock photo</button></a>
+        <a href="template.html"><button>Your photo</button></a>
         <button onclick="window.print()">Print poster</button>
     </div>
 
@@ -329,13 +348,21 @@
         </div>
 
         <ul class="features">
-            <li>100 / 50 Mbps fiber internet</li>
+            <li>High‑speed fiber · 100/50 Mbps</li>
             <li>Open desks · 2 phone booths</li>
             <li>Conference room for 6–8</li>
             <li>HEPA air · battery backup</li>
             <li>Riverside picnic tables</li>
             <li>Honest snack stand · drip coffee</li>
         </ul>
+
+        <p class="highlight">
+            <span><strong>High‑speed fiber.</strong></span>
+            <span class="sep">·</span>
+            <span>Open every day.</span>
+            <span class="sep">·</span>
+            <span>Try it for $34.99.</span>
+        </p>
 
         <footer class="footer">
             <div class="footer-text">

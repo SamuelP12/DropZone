@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Drop Zone — Poster (with photo)</title>
+    <title>Drop Zone — Poster (your photo)</title>
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <style>
@@ -45,7 +45,7 @@
             overflow: hidden;
         }
 
-        /* Header (sits above the photo) */
+        /* Header */
         .header {
             display: flex;
             justify-content: space-between;
@@ -76,45 +76,66 @@
             text-align: right;
         }
 
-        /* Photo strip */
-        .photo-band {
-            position: relative;
-            width: 100%;
-            height: 2.4in;
+        /* Photo placeholder — replace this with your own image */
+        .photo-frame {
+            margin: 0 0.5in;
+            height: 4.4in;
+            border-radius: 18px;
             overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, var(--accent-soft) 0%, #f4f6fa 100%);
+            border: 2px dashed rgba(37,99,235,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .photo-band img {
+        /* When you swap in your photo, an <img> child will fill this frame.
+           The placeholder UI below stays hidden behind it. */
+        .photo-frame img {
+            position: absolute;
+            inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
+            border-radius: 16px;
         }
-        .photo-band::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(11,31,58,0) 0%, rgba(11,31,58,0) 60%, rgba(11,31,58,0.45) 100%);
+        .photo-placeholder {
+            text-align: center;
+            color: var(--accent);
+            position: relative;
+            z-index: 0;
         }
-        .photo-overlay {
-            position: absolute;
-            left: 0.7in;
-            right: 0.7in;
-            bottom: 22px;
-            color: #fff;
+        .photo-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 12px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.7);
             display: flex;
-            justify-content: space-between;
-            align-items: end;
-            font-size: 10pt;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            z-index: 1;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
         }
-        .photo-overlay .left { text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
+        .photo-title {
+            font-size: 13pt;
+            font-weight: 600;
+            margin: 0 0 4px;
+            letter-spacing: -0.005em;
+            color: var(--ink);
+        }
+        .photo-hint {
+            font-size: 9pt;
+            color: var(--ink-3);
+            margin: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            max-width: 32ch;
+        }
 
         /* Body */
         .body {
-            padding: 24px 0.7in 0.45in;
+            padding: 22px 0.7in 0.45in;
             display: flex;
             flex-direction: column;
             flex: 1;
@@ -126,12 +147,12 @@
             color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 0.2em;
-            margin: 0 0 10px;
+            margin: 0 0 8px;
         }
         .headline {
-            font-size: 56pt;
+            font-size: 44pt;
             font-weight: 600;
-            line-height: 0.96;
+            line-height: 0.98;
             letter-spacing: -0.04em;
             margin: 0;
             color: var(--ink);
@@ -142,25 +163,24 @@
             font-weight: 500;
         }
         .sub {
-            font-size: 12.5pt;
+            font-size: 12pt;
             color: var(--ink-2);
-            margin: 16px 0 0;
-            max-width: 32em;
+            margin: 14px 0 0;
+            max-width: 38em;
             line-height: 1.4;
-            font-weight: 400;
         }
 
-        /* Price band — 2 tiles */
+        /* Price band */
         .prices {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 14px;
-            margin: 22px 0 18px;
+            gap: 12px;
+            margin: 18px 0 14px;
         }
         .price {
             border: 1px solid var(--line);
-            border-radius: 14px;
-            padding: 16px 18px 14px;
+            border-radius: 12px;
+            padding: 12px 16px;
             background: var(--paper);
         }
         .price.featured {
@@ -169,16 +189,16 @@
             border-color: var(--ink);
         }
         .price-key {
-            font-size: 9pt;
+            font-size: 8.5pt;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.18em;
             color: var(--ink-3);
-            margin: 0 0 6px;
+            margin: 0 0 4px;
         }
         .price.featured .price-key { color: rgba(255,255,255,0.7); }
         .price-num {
-            font-size: 28pt;
+            font-size: 22pt;
             font-weight: 600;
             letter-spacing: -0.03em;
             line-height: 1;
@@ -187,27 +207,24 @@
         }
         .price.featured .price-num { color: #fff; }
         .price-meta {
-            font-size: 9pt;
+            font-size: 8.5pt;
             color: var(--ink-3);
-            margin: 6px 0 0;
+            margin: 4px 0 0;
         }
         .price.featured .price-meta { color: rgba(255,255,255,0.7); }
 
-        /* Features */
+        /* Features compact */
         .features {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6px 32px;
-            margin: 0 0 18px;
-            padding: 16px 22px;
-            background: rgba(37,99,235,0.04);
-            border-radius: 14px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px 24px;
+            margin: 0 0 14px;
         }
         .features li {
             list-style: none;
-            font-size: 10.5pt;
+            font-size: 9.5pt;
             color: var(--ink-2);
-            padding-left: 16px;
+            padding-left: 14px;
             position: relative;
             line-height: 1.35;
         }
@@ -215,7 +232,7 @@
             content: '';
             position: absolute;
             left: 0;
-            top: 7px;
+            top: 6px;
             width: 5px;
             height: 5px;
             border-radius: 999px;
@@ -230,49 +247,45 @@
 
         /* Footer */
         .footer {
-            margin-top: auto;
             display: grid;
             grid-template-columns: 1fr auto;
-            gap: 28px;
+            gap: 24px;
             align-items: end;
-            padding-top: 16px;
+            padding-top: 14px;
             border-top: 1px solid var(--line);
         }
-        .footer-text { font-size: 10.5pt; color: var(--ink-2); line-height: 1.5; }
+        .footer-text { font-size: 10pt; color: var(--ink-2); line-height: 1.5; }
         .footer-h {
-            font-size: 9pt;
+            font-size: 8.5pt;
             font-weight: 500;
             color: var(--ink-3);
             text-transform: uppercase;
             letter-spacing: 0.16em;
-            margin: 0 0 6px;
+            margin: 0 0 4px;
         }
-        .footer-row { margin-bottom: 14px; }
+        .footer-row { margin-bottom: 10px; }
         .footer-row:last-child { margin-bottom: 0; }
         .footer-row p { margin: 0; }
         .footer-row strong {
             font-weight: 600;
             color: var(--ink);
-            font-size: 12pt;
-            letter-spacing: -0.005em;
+            font-size: 11.5pt;
         }
         .footer-row .accent { color: var(--accent); }
 
-        .qr {
-            text-align: center;
-        }
+        .qr { text-align: center; }
         .qr-img {
-            width: 1.3in;
-            height: 1.3in;
+            width: 1.1in;
+            height: 1.1in;
             border-radius: 6px;
         }
         .qr-caption {
-            font-size: 8pt;
+            font-size: 7.5pt;
             font-weight: 500;
             color: var(--ink-3);
             text-transform: uppercase;
             letter-spacing: 0.16em;
-            margin: 6px 0 0;
+            margin: 4px 0 0;
         }
 
         /* Print controls */
@@ -301,19 +314,46 @@
         .print-bar a button:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
         .print-bar button:hover { background: var(--accent); }
 
+        /* Help banner — visible on screen, hidden when printing */
+        .help {
+            max-width: 8.5in;
+            margin: 0 auto 12px;
+            padding: 12px 16px;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            font-size: 13px;
+            color: var(--ink-2);
+            line-height: 1.5;
+        }
+        .help strong { color: var(--ink); font-weight: 600; }
+        .help code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            background: var(--accent-soft);
+            color: var(--ink);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
         @media print {
             body { background: #fff; padding: 0; display: block; }
             .poster { width: 8.5in; height: 11in; box-shadow: none; page-break-after: always; }
-            .print-bar { display: none; }
+            .print-bar, .help { display: none; }
+            .photo-frame { border: none; }
         }
     </style>
 </head>
 <body>
 
     <div class="print-bar">
-        <a href="index.html"><button>Text only</button></a>
-        <a href="template.html"><button>Your photo</button></a>
+        <a href="index.html"><button>← Text only</button></a>
+        <a href="photo.html"><button>Stock photo</button></a>
         <button onclick="window.print()">Print poster</button>
+    </div>
+
+    <div class="help">
+        <strong>To use your own photo:</strong> drop your image file into the <code>poster/</code> folder, then in <code>template.html</code> replace the placeholder block with <code>&lt;img src="your-photo.jpg" alt=""&gt;</code>. Anything roughly 1500&nbsp;×&nbsp;800 pixels or larger will look sharp on a printed poster.
     </div>
 
     <div class="poster">
@@ -326,19 +366,22 @@
             <span class="header-meta">Coworking · Winthrop, WA</span>
         </header>
 
-        <div class="photo-band">
-            <img src="../images/hero-mountains.jpg" alt="" />
-            <div class="photo-overlay">
-                <span class="left">The Methow Valley</span>
-                <span class="left">303 Riverside · Winthrop</span>
+        <!-- ===== Photo spot ===== -->
+        <!-- Replace the .photo-placeholder block with: <img src="your-photo.jpg" alt=""> -->
+        <div class="photo-frame">
+            <div class="photo-placeholder">
+                <div class="photo-icon">📷</div>
+                <p class="photo-title">Your photo goes here</p>
+                <p class="photo-hint">Replace this block with an &lt;img&gt; tag pointing at your file. 1500 × 800 px or larger looks sharp.</p>
             </div>
         </div>
+        <!-- ===== /Photo spot ===== -->
 
         <div class="body">
 
             <p class="eyebrow">Now open · 303 Riverside Avenue</p>
             <h1 class="headline">A workspace<br/>in the <em>Methow</em>.</h1>
-            <p class="sub">Fiber Wi‑Fi. Twenty‑four‑seven member access. A quiet desk waiting for you in the heart of downtown Winthrop.</p>
+            <p class="sub">High‑speed fiber. Twenty‑four‑seven member access. A quiet desk waiting for you in the heart of downtown Winthrop.</p>
 
             <div class="prices">
                 <div class="price">
@@ -359,23 +402,23 @@
                 <li>Conference room for 6–8</li>
                 <li>HEPA air · battery backup</li>
                 <li>Riverside picnic tables</li>
-                <li>Honest snack stand · drip coffee</li>
+                <li>Honest snack stand · coffee</li>
             </ul>
 
             <footer class="footer">
                 <div class="footer-text">
                     <div class="footer-row">
                         <p class="footer-h">Visit</p>
-                        <p><strong>303 Riverside Avenue</strong><br/>Winthrop, WA 98862<br/>Ground floor · wheelchair accessible · free street parking</p>
+                        <p><strong>303 Riverside Avenue · Winthrop, WA 98862</strong><br/>Ground floor · wheelchair accessible · free street parking</p>
                     </div>
                     <div class="footer-row">
                         <p class="footer-h">Get in touch</p>
-                        <p><strong class="accent">dropzonecowork.com</strong><br/>hello@dropzonecowork.com</p>
+                        <p><strong class="accent">dropzonecowork.com</strong> · hello@dropzonecowork.com</p>
                     </div>
                 </div>
                 <div class="qr">
                     <img src="qr.svg" alt="Scan to visit dropzonecowork.com" class="qr-img" />
-                    <p class="qr-caption">Scan to visit</p>
+                    <p class="qr-caption">Scan</p>
                 </div>
             </footer>
 
