@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0a2540">
+    <meta name="theme-color" content="#0b1f3a">
     <title>Drop Zone — Coworking in the Methow Valley</title>
-    <meta name="description" content="The Methow Valley's flagship coworking space. Fiber internet, 24/7 access, and a community of doers in downtown Winthrop, WA.">
+    <meta name="description" content="A coworking space in downtown Winthrop, WA. Fiber internet, 24/7 member access, and a desk waiting for you.">
 
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
@@ -13,83 +13,127 @@
 </head>
 <body>
 
-    <!-- Nav -->
     <header class="nav" id="nav">
         <div class="nav-inner">
-            <a href="#top" class="nav-logo">Drop&nbsp;Zone</a>
+            <a href="#top" class="nav-logo">
+                <span class="dot"></span>
+                Drop&nbsp;Zone
+            </a>
             <nav class="nav-links">
-                <a href="#space">Space</a>
-                <a href="#pricing">Pricing</a>
+                <a href="#bento">Overview</a>
+                <a href="#pricing">Membership</a>
                 <a href="#location">Location</a>
                 <a href="#faq">FAQ</a>
             </nav>
-            <a href="#pricing" class="nav-cta">Get a pass</a>
+            <a href="#pricing" class="nav-cta">Day pass · $34.99</a>
         </div>
     </header>
 
     <main id="top">
 
-        <!-- Hero -->
+        <!-- Hero: typographic only -->
         <section class="hero">
-            <div class="hero-bg" data-parallax>
-                <img src="images/hero-mountains.jpg" alt="" />
-                <div class="hero-vignette"></div>
-            </div>
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    Work where<br/>you'd rather be.
+            <div class="hero-inner">
+                <p class="hero-meta reveal">
+                    <span class="live"><span class="live-dot"></span>Open today · 303 Riverside Ave</span>
+                </p>
+                <h1 class="hero-title reveal">
+                    A workspace<br/>in the <em>Methow</em>.
                 </h1>
-                <p class="hero-sub">A coworking space in the heart of Winthrop, built for the people who came to the Methow to live well and still ship serious work.</p>
-                <a href="#pricing" class="hero-link">Start with a day pass <span aria-hidden="true">→</span></a>
-            </div>
-        </section>
-
-        <!-- The space -->
-        <section class="split" id="space">
-            <div class="split-inner">
-                <div class="split-text reveal">
-                    <h2 class="display">Built for focus.</h2>
-                    <p class="lede">Open desks, two private phone booths, and a conference room that seats six to eight. Quiet by default, social when you want it.</p>
-                    <p class="body">Fiber‑powered Wi‑Fi at 100 down / 50 up. Battery backup when the power flickers. HEPA filtration for when the smoke rolls in. Everything you need so the work doesn't pause.</p>
+                <p class="hero-sub reveal">Coworking in downtown Winthrop, built for the people who came to the mountains to live well — and still ship serious work.</p>
+                <div class="hero-actions reveal">
+                    <a href="#pricing" class="btn btn-primary">Get a day pass · $34.99</a>
+                    <a href="#bento" class="link-arrow">Take a look <span aria-hidden="true">↓</span></a>
                 </div>
-                <figure class="split-media reveal">
-                    <img src="images/space-interior.jpg" alt="Coworking interior" loading="lazy" />
-                </figure>
+            </div>
+            <div class="hero-grain" aria-hidden="true"></div>
+        </section>
+
+        <!-- Bento grid: everything important at a glance -->
+        <section class="bento" id="bento">
+            <div class="bento-grid">
+
+                <!-- Big photo: the space -->
+                <a href="#pricing" class="tile tile-photo tile-space reveal">
+                    <img src="images/space-interior.jpg" alt="" />
+                    <div class="tile-photo-overlay">
+                        <p class="tile-label">The space</p>
+                        <h3 class="tile-headline">Built for focus.</h3>
+                        <p class="tile-text">Open desks. Two phone booths. A six‑to‑eight person conference room. Quiet by default, social when you want it.</p>
+                    </div>
+                </a>
+
+                <!-- Featured: pricing summary -->
+                <article class="tile tile-featured tile-pricing reveal">
+                    <p class="tile-label tile-label-light">Membership</p>
+                    <ul class="price-mini">
+                        <li><span>Day pass</span><strong>$34.99</strong></li>
+                        <li><span>Individual</span><strong>$129.99 / mo</strong></li>
+                        <li><span>Couple</span><strong>$109.99 / mo each</strong></li>
+                    </ul>
+                    <a href="#pricing" class="link-arrow link-arrow-light">See what's included <span aria-hidden="true">→</span></a>
+                </article>
+
+                <!-- Location -->
+                <a href="#location" class="tile tile-location reveal">
+                    <p class="tile-label">Find us</p>
+                    <h3 class="tile-headline">303 Riverside Ave.</h3>
+                    <p class="tile-text">Center of Winthrop. Free parking, ground‑floor entry, wheelchair accessible.</p>
+                    <span class="link-arrow">Open in Maps <span aria-hidden="true">→</span></span>
+                </a>
+
+                <!-- 24/7 stat -->
+                <article class="tile tile-stat tile-access reveal">
+                    <p class="tile-label">Access</p>
+                    <p class="tile-stat-num">24<span class="slash">/</span>7</p>
+                    <p class="tile-text">Members come and go on their own schedule.</p>
+                </article>
+
+                <!-- Outdoor wide photo -->
+                <article class="tile tile-photo tile-outdoor reveal">
+                    <img src="images/outdoor-tables.jpg" alt="" />
+                    <div class="tile-photo-overlay">
+                        <p class="tile-label">Outside</p>
+                        <h3 class="tile-headline">Three tables. One river.</h3>
+                        <p class="tile-text">When the weather's right, the best seat is out back.</p>
+                    </div>
+                </article>
+
+                <!-- Wifi stat -->
+                <article class="tile tile-stat tile-wifi reveal">
+                    <p class="tile-label">Internet</p>
+                    <p class="tile-stat-num">100<span class="slash">/</span><span class="up">50</span></p>
+                    <p class="tile-text">Mbps fiber. Battery backup when the grid blinks.</p>
+                </article>
+
+                <!-- Amenities mini list -->
+                <article class="tile tile-amenities reveal">
+                    <p class="tile-label">Included</p>
+                    <ul class="amenity-mini">
+                        <li>Phone booths</li>
+                        <li>HEPA air filtration</li>
+                        <li>Conference room</li>
+                        <li>Honest snack stand</li>
+                        <li>Drip coffee</li>
+                        <li>Climate control</li>
+                    </ul>
+                </article>
+
+                <!-- Conference room CTA -->
+                <a href="#" data-link="conference" class="tile tile-conference reveal">
+                    <p class="tile-label">For the bigger meetings</p>
+                    <h3 class="tile-headline">Reserve the conference&nbsp;room.</h3>
+                    <p class="tile-text">$14.99/hr for visitors. Members get four hours each month included.</p>
+                    <span class="link-arrow">Book a slot <span aria-hidden="true">→</span></span>
+                </a>
+
             </div>
         </section>
 
-        <!-- Access -->
-        <section class="split reverse">
-            <div class="split-inner">
-                <div class="split-text reveal">
-                    <h2 class="display">Yours, around the clock.</h2>
-                    <p class="lede">Members get a key to the door — not a window of permitted hours.</p>
-                    <p class="body">Early‑morning quiet. After‑hours deep work. Weekend sprints when the rest of town is on the trails. No reservations, no time limits.</p>
-                </div>
-                <figure class="split-media reveal">
-                    <img src="images/conference-room.jpg" alt="Conference room" loading="lazy" />
-                </figure>
-            </div>
-        </section>
-
-        <!-- Outdoor -->
-        <section class="split" id="outdoors">
-            <div class="split-inner">
-                <div class="split-text reveal">
-                    <h2 class="display">Three tables.<br/>One river.</h2>
-                    <p class="lede">When the weather's right, the best seat in the house is outside.</p>
-                    <p class="body">Three picnic tables out back, all looking straight at the water — one under shade for laptop afternoons, two open to the sun.</p>
-                </div>
-                <figure class="split-media reveal">
-                    <img src="images/outdoor-tables.jpg" alt="Picnic tables beside a river" loading="lazy" />
-                </figure>
-            </div>
-        </section>
-
-        <!-- Pricing -->
-        <section class="pricing" id="pricing">
+        <!-- Membership detail -->
+        <section class="membership" id="pricing">
             <div class="section-head reveal">
-                <h2 class="display">Three ways in.</h2>
+                <h2 class="display">Three ways&nbsp;in.</h2>
                 <p class="lede">Month‑to‑month. Cancel anytime. If your first day isn't great, let us know.</p>
             </div>
 
@@ -103,7 +147,7 @@
                         <li>Fiber Wi‑Fi · printer · coffee</li>
                         <li>Phone booths on availability</li>
                     </ul>
-                    <a href="#" class="btn btn-dark" data-link="day-pass">Buy a day pass</a>
+                    <a href="#" class="btn btn-quiet" data-link="day-pass">Buy a day pass</a>
                 </article>
 
                 <article class="price-card featured reveal">
@@ -130,40 +174,44 @@
                         <li>4 hrs / month per person · 8 hrs total</li>
                         <li>Cancel anytime</li>
                     </ul>
-                    <a href="#" class="btn btn-dark" data-link="couple">Sign up together</a>
+                    <a href="#" class="btn btn-quiet" data-link="couple">Sign up together</a>
                 </article>
             </div>
 
             <p class="price-note reveal">Conference room rates: <strong>$14.99/hr</strong> for day visitors · <strong>$9.99/hr per person</strong> for members beyond their included 4 hours. <a href="#" data-link="conference">Reserve the conference room →</a></p>
         </section>
 
-        <!-- Amenities -->
-        <section class="amenities" id="amenities">
-            <div class="section-head reveal">
-                <h2 class="display">No surprises.<br/>No add‑ons.</h2>
-            </div>
-            <ul class="amenity-grid">
-                <li class="reveal"><h4>Fiber Wi‑Fi</h4><p>100 / 50 Mbps. The fastest connection in the valley.</p></li>
-                <li class="reveal"><h4>24/7 access</h4><p>Members come and go on their own schedule.</p></li>
-                <li class="reveal"><h4>Phone booths</h4><p>Two private rooms for calls and quick meetings.</p></li>
-                <li class="reveal"><h4>Conference room</h4><p>Seats six to eight. HDMI, whiteboard, big window.</p></li>
-                <li class="reveal"><h4>HEPA air</h4><p>Three filters running through wildfire season.</p></li>
-                <li class="reveal"><h4>Battery backup</h4><p>Internet and lights stay up when the grid blinks.</p></li>
-                <li class="reveal"><h4>Climate control</h4><p>Comfortable through July highs and February lows.</p></li>
-                <li class="reveal"><h4>Snacks + coffee</h4><p>Honest snack stand at near‑grocery prices. Drip on the counter.</p></li>
-                <li class="reveal"><h4>Riverside tables</h4><p>Three picnic tables out back. One shaded, two in the sun.</p></li>
-            </ul>
-        </section>
-
-        <!-- Location -->
+        <!-- Location strip (text-led, not full-bleed) -->
         <section class="location" id="location">
-            <div class="location-bg" data-parallax>
-                <img src="images/valley-aerial.jpg" alt="" />
-            </div>
-            <div class="location-content reveal">
-                <h2 class="display">303 Riverside Avenue.<br/>Center of Winthrop.</h2>
-                <p class="lede light">Right on the main drag through downtown. Free street parking out front and a ground‑floor, wheelchair‑accessible entry. Five minutes from Twisp, twenty from Mazama, walking distance to coffee, the bookstore, and the Chewuch.</p>
-                <a href="https://maps.apple.com/?q=303+Riverside+Avenue+Winthrop+WA" class="hero-link light" target="_blank" rel="noopener">Open in Maps <span aria-hidden="true">→</span></a>
+            <div class="location-inner reveal">
+                <div class="location-text">
+                    <p class="location-label">Find us</p>
+                    <h2 class="display">303 Riverside Avenue,<br/>center of Winthrop.</h2>
+                    <p class="lede">Right on the main drag through downtown. Free street parking out front, a ground‑floor wheelchair‑accessible entry, and walking distance to coffee, the bookstore, and the Chewuch. Five minutes from Twisp, twenty from Mazama.</p>
+                    <a href="https://maps.apple.com/?q=303+Riverside+Avenue+Winthrop+WA" target="_blank" rel="noopener" class="link-arrow">Open in Maps <span aria-hidden="true">→</span></a>
+                </div>
+                <div class="location-card">
+                    <div class="card-row">
+                        <span class="card-key">Address</span>
+                        <span class="card-val">303 Riverside Ave<br/>Winthrop, WA 98862</span>
+                    </div>
+                    <div class="card-row">
+                        <span class="card-key">Hours</span>
+                        <span class="card-val">24/7 for members<br/>9–5 for day visitors</span>
+                    </div>
+                    <div class="card-row">
+                        <span class="card-key">Parking</span>
+                        <span class="card-val">Free street parking</span>
+                    </div>
+                    <div class="card-row">
+                        <span class="card-key">Access</span>
+                        <span class="card-val">Ground floor · wheelchair accessible</span>
+                    </div>
+                    <div class="card-row">
+                        <span class="card-key">Email</span>
+                        <span class="card-val"><a href="mailto:hello@dropzonecowork.com">hello@dropzonecowork.com</a></span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -182,8 +230,8 @@
                     <p>Each membership and pass covers one person. If a friend wants to join you for the day, they can buy a day pass alongside yours.</p>
                 </details>
                 <details class="reveal">
-                    <summary>Do you have parking?</summary>
-                    <p>Yes — free street parking on Riverside and the surrounding blocks. Plenty of room except on the busiest summer weekends.</p>
+                    <summary>Is the building accessible?</summary>
+                    <p>Yes. Ground‑floor entry, wheelchair accessible, and free parking right out front on Riverside.</p>
                 </details>
                 <details class="reveal">
                     <summary>Can I rent the conference room without a membership?</summary>
@@ -196,43 +244,35 @@
             </div>
         </section>
 
-        <!-- Final CTA -->
-        <section class="final-cta">
-            <div class="final-cta-bg">
-                <img src="images/snowy-peaks.jpg" alt="" />
-            </div>
-            <div class="final-cta-content reveal">
-                <h2 class="display">Come work in the valley.</h2>
-                <div class="final-actions">
-                    <a href="#" class="btn btn-primary" data-link="day-pass">Day pass · $34.99</a>
-                    <a href="#" class="hero-link light" data-link="individual">Become a member <span aria-hidden="true">→</span></a>
-                </div>
-            </div>
-        </section>
-
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-col footer-brand">
-                <p class="footer-logo">Drop Zone</p>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <p class="footer-logo"><span class="dot"></span> Drop Zone</p>
                 <p class="footer-tag">Coworking · Winthrop, WA</p>
             </div>
-            <div class="footer-col">
-                <p class="footer-h">Visit</p>
-                <p>303 Riverside Avenue<br/>Winthrop, WA 98862</p>
-            </div>
-            <div class="footer-col">
-                <p class="footer-h">Contact</p>
-                <p><a href="mailto:hello@dropzonecowork.com">hello@dropzonecowork.com</a></p>
-            </div>
-            <div class="footer-col">
-                <p class="footer-h">Get in</p>
-                <p><a href="#" data-link="day-pass">Day pass</a><br/><a href="#" data-link="individual">Individual</a><br/><a href="#" data-link="couple">Couple</a><br/><a href="#" data-link="conference">Conference room</a></p>
+            <div class="footer-links">
+                <div>
+                    <p class="footer-h">Visit</p>
+                    <p>303 Riverside Avenue<br/>Winthrop, WA 98862</p>
+                </div>
+                <div>
+                    <p class="footer-h">Contact</p>
+                    <p><a href="mailto:hello@dropzonecowork.com">hello@dropzonecowork.com</a></p>
+                </div>
+                <div>
+                    <p class="footer-h">Get in</p>
+                    <p>
+                        <a href="#" data-link="day-pass">Day pass</a><br/>
+                        <a href="#" data-link="individual">Individual</a><br/>
+                        <a href="#" data-link="couple">Couple</a><br/>
+                        <a href="#" data-link="conference">Conference room</a>
+                    </p>
+                </div>
             </div>
         </div>
-        <div class="footer-fine">
+        <div class="footer-bottom">
             <p>© <span id="year"></span> Drop Zone Cowork</p>
             <p>Photos pending — originals coming soon.</p>
         </div>

@@ -1,6 +1,4 @@
-// =====================================================
 // Drop Zone — interactions
-// =====================================================
 
 (function () {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -22,7 +20,6 @@
         };
         requestAnimationFrame(raf);
 
-        // Anchor clicks → Lenis scroll
         document.querySelectorAll('a[href^="#"]').forEach((a) => {
             a.addEventListener('click', (e) => {
                 const id = a.getAttribute('href');
@@ -39,7 +36,7 @@
     const nav = document.getElementById('nav');
     const onScroll = () => {
         const y = window.scrollY || document.documentElement.scrollTop;
-        if (y > 32) nav.classList.add('scrolled');
+        if (y > 24) nav.classList.add('scrolled');
         else nav.classList.remove('scrolled');
     };
     onScroll();
@@ -55,37 +52,9 @@
                 }
             });
         }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-
         document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
     } else {
         document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in'));
-    }
-
-    // ----- Subtle parallax on hero + location backgrounds -----
-    if (!reduceMotion) {
-        const parallaxEls = document.querySelectorAll('[data-parallax]');
-        let ticking = false;
-
-        const update = () => {
-            const vh = window.innerHeight;
-            parallaxEls.forEach((el) => {
-                const rect = el.getBoundingClientRect();
-                if (rect.bottom < 0 || rect.top > vh) return;
-                // 0..1 across viewport
-                const progress = (rect.top + rect.height / 2 - vh / 2) / vh;
-                const translate = progress * -40; // px
-                el.style.transform = `translate3d(0, ${translate}px, 0)`;
-            });
-            ticking = false;
-        };
-
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(update);
-                ticking = true;
-            }
-        }, { passive: true });
-        update();
     }
 
     // ----- Footer year -----
@@ -111,9 +80,7 @@
                 setTimeout(() => { a.textContent = a.dataset.label; }, 1800);
                 return;
             }
-            // Real URL set — let the browser navigate.
             a.setAttribute('href', url);
         });
     });
-
 })();
