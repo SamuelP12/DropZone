@@ -33,6 +33,25 @@
         });
     }
 
+    // ----- Mobile-only: bento location tile opens Maps directly -----
+    // On desktop the tile scrolls down to the full location section; on phones
+    // (where that section is essentially redundant after the tile copy was
+    // enriched) sending the user straight to Maps is more useful.
+    const locationTile = document.querySelector('.tile-location');
+    if (locationTile) {
+        locationTile.addEventListener('click', (e) => {
+            if (window.innerWidth <= 480) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                window.open(
+                    'https://maps.apple.com/?q=303+Riverside+Avenue+Winthrop+WA',
+                    '_blank',
+                    'noopener'
+                );
+            }
+        }, true); // capture so this fires before the anchor handler above
+    }
+
     // ----- Nav state on scroll -----
     const nav = document.getElementById('nav');
     const onScroll = () => {

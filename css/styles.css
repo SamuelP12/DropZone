@@ -40,6 +40,10 @@
 html { scroll-behavior: smooth; overflow-x: clip; }
 html, body { margin: 0; padding: 0; }
 
+/* Default: hide elements flagged as mobile-only. They get re-shown
+   inside the @media (max-width: 480px) block at the bottom of the file. */
+.mobile-only { display: none; }
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
     background: var(--bg);
@@ -925,6 +929,29 @@ a.tile { cursor: pointer; }
    Targets phones; desktop layout above is untouched.
    ===================================================== */
 @media (max-width: 480px) {
+    /* Re-show mobile-only flagged elements */
+    p.mobile-only        { display: block; }
+    li.mobile-only       { display: list-item; }
+    span.mobile-only     { display: inline; }
+    .mobile-only         { display: revert; }
+
+    /* Drop the pricing summary tile and the outdoor photo tile on phone —
+       pricing is repeated below in detail and outdoor info is now in the
+       included list */
+    .tile-pricing { display: none; }
+    .tile-outdoor { display: none; }
+
+    /* Reflow the bento grid without those two tiles, no empty rows */
+    .bento-grid {
+        grid-template-areas:
+            "space"
+            "location"
+            "access"
+            "wifi"
+            "amen"
+            "conf";
+    }
+
     /* Hero — was overflowing on narrow screens */
     .hero {
         padding: 112px var(--pad-x) 56px;
@@ -974,10 +1001,23 @@ a.tile { cursor: pointer; }
         text-align: right;
     }
 
-    /* Detailed pricing cards */
-    .membership { padding: 80px var(--pad-x); }
-    .price-card { padding: 32px 24px; }
-    .price-num { font-size: 40px; }
+    /* Detailed pricing cards — compacted so close to all three fit on one screen */
+    .membership { padding: 56px var(--pad-x); }
+    .section-head { margin-bottom: 32px; }
+    .section-head .display { font-size: clamp(28px, 7.5vw, 38px); }
+    .section-head .lede { font-size: 14px; }
+    .price-grid { gap: 10px; }
+    .price-card { padding: 22px 20px; gap: 12px; }
+    .price-card h3 { font-size: 11px; letter-spacing: 0.1em; }
+    .price-num { font-size: 32px; }
+    .price-per { font-size: 12.5px; }
+    .price-sub { font-size: 12px; margin-top: -4px; }
+    .price-desc { font-size: 13px; line-height: 1.45; }
+    .price-feats { padding-top: 14px; gap: 7px; }
+    .price-feats li { font-size: 12.5px; padding-left: 18px; line-height: 1.4; }
+    .price-feats li::before { top: 5px; width: 9px; height: 5px; }
+    .price-card .btn { padding: 10px 16px; font-size: 13px; }
+    .price-note { margin-top: 32px; font-size: 12.5px; line-height: 1.55; }
 
     /* Section headlines */
     .display { font-size: clamp(32px, 8.4vw, 48px); }
