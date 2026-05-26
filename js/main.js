@@ -81,26 +81,27 @@
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // ----- Payment links placeholder behaviour -----
-    // Until real Stripe / Square URLs are wired up, intercept and show a friendly message.
+    // ----- Payment / booking links -----
+    // Day pass and memberships go to MoonClerk (carried over from the legacy site).
+    // Conference room booking is not yet wired; clicking shows a placeholder message.
     const linkMap = {
-        'day-pass': null,
-        'individual': null,
-        'couple': null,
+        'day-pass':   'https://app.moonclerk.com/pay/5k3xhts5xih9',
+        'individual': 'https://app.moonclerk.com/pay/705jnnm3ek65',
+        'couple':     'https://app.moonclerk.com/pay/705jnnm3ek65',
         'conference': null,
     };
     document.querySelectorAll('a[data-link]').forEach((a) => {
         a.addEventListener('click', (e) => {
             const key = a.dataset.link;
             const url = linkMap[key];
+            e.preventDefault();
             if (!url) {
-                e.preventDefault();
                 a.dataset.label = a.dataset.label || a.textContent;
-                a.textContent = 'Payment link coming soon';
+                a.textContent = 'Booking link coming soon';
                 setTimeout(() => { a.textContent = a.dataset.label; }, 1800);
                 return;
             }
-            a.setAttribute('href', url);
+            window.open(url, '_blank', 'noopener,noreferrer');
         });
     });
 })();
