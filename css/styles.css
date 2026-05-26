@@ -315,25 +315,6 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 /* =====================================================
-   Banner — wide Methow landscape between hero and bento
-   ===================================================== */
-
-.banner {
-    padding: 0 var(--pad-x);
-}
-.banner img {
-    display: block;
-    width: 100%;
-    max-width: var(--max-w);
-    margin: 0 auto;
-    height: clamp(220px, 38vh, 420px);
-    object-fit: cover;
-    object-position: center 65%;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-sm);
-}
-
-/* =====================================================
    Bento grid — the heart of the page
    ===================================================== */
 
