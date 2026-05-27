@@ -390,8 +390,13 @@ a.tile { cursor: pointer; }
     object-position: center center;
     transition: transform 8s var(--ease-out);
 }
-.tile-space img { object-position: center 85%; }
-.tile-outdoor img { object-position: center 6%; }
+.tile-space img {
+    object-position: center 88%;
+    transform: scale(1.10);
+    transform-origin: center bottom;
+}
+.tile-space:hover img { transform: scale(1.14); }
+.tile-outdoor img { object-position: center 15%; }
 .tile-photo:hover img { transform: scale(1.04); }
 .tile-photo-overlay {
     position: relative;
