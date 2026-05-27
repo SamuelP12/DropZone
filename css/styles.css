@@ -396,7 +396,7 @@ a.tile { cursor: pointer; }
     transform-origin: center bottom;
 }
 .tile-space:hover img { transform: scale(1.14); }
-.tile-outdoor img { object-position: center 50.5%; }
+.tile-outdoor img { object-position: center 49.5%; }
 .tile-photo:hover img { transform: scale(1.04); }
 .tile-photo-overlay {
     position: relative;
