@@ -81,14 +81,11 @@
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // ----- Payment / booking links -----
-    // Day pass and memberships go to MoonClerk (carried over from the legacy site).
-    // Conference room booking is not yet wired; clicking shows a placeholder message.
     const linkMap = {
         'day-pass':   'https://app.moonclerk.com/pay/5k3xhts5xih9',
         'individual': 'https://app.moonclerk.com/pay/705jnnm3ek65',
         'couple':     'https://app.moonclerk.com/pay/705jnnm3ek65',
-        'conference': null,
+        'conference': 'https://dropzone.youcanbook.me',
     };
     document.querySelectorAll('a[data-link]').forEach((a) => {
         a.addEventListener('click', (e) => {
