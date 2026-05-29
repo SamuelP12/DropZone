@@ -63,7 +63,20 @@
     window.addEventListener('scroll', onScroll, { passive: true });
 
     // ----- Reveal on scroll -----
+    const reveals = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window && !reduceMotion) {
+        // Gentle stagger: items that share a container cascade in one after
+        // another (e.g. bento tiles, price cards, info blobs) rather than all
+        // popping at once. Capped so nothing feels slow.
+        reveals.forEach((el) => {
+            const sibs = Array.from(el.parentElement.children)
+                .filter((c) => c.classList.contains('reveal'));
+            const i = sibs.indexOf(el);
+            if (sibs.length > 1 && i > 0) {
+                el.style.setProperty('--reveal-delay', Math.min(i * 70, 350) + 'ms');
+            }
+        });
+
         const io = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -72,9 +85,9 @@
                 }
             });
         }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-        document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+        reveals.forEach((el) => io.observe(el));
     } else {
-        document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in'));
+        reveals.forEach((el) => el.classList.add('in'));
     }
 
     // ----- Footer year -----
