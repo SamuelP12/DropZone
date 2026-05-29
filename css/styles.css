@@ -72,16 +72,22 @@ html.lenis, html.lenis body { height: auto; }
 /* Reveal on scroll — subtle */
 .reveal {
     opacity: 0;
-    transform: translateY(26px) scale(0.985);
+    transform: translateY(34px) scale(0.98);
+    filter: blur(6px);
     transition:
-        opacity 0.8s var(--ease-out),
-        transform 0.9s var(--ease-out);
+        opacity 1s var(--ease-out),
+        transform 1.25s var(--ease-out),
+        filter 1s var(--ease-out);
     transition-delay: var(--reveal-delay, 0ms);
-    will-change: opacity, transform;
+    will-change: opacity, transform, filter;
 }
-.reveal.in { opacity: 1; transform: none; }
+.reveal.in {
+    opacity: 1;
+    transform: none;
+    filter: none;
+}
 @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
+    .reveal { opacity: 1; transform: none; filter: none; transition: none; }
     html { scroll-behavior: auto; }
 }
 

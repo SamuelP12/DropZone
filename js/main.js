@@ -73,7 +73,7 @@
                 .filter((c) => c.classList.contains('reveal'));
             const i = sibs.indexOf(el);
             if (sibs.length > 1 && i > 0) {
-                el.style.setProperty('--reveal-delay', Math.min(i * 70, 350) + 'ms');
+                el.style.setProperty('--reveal-delay', Math.min(i * 110, 660) + 'ms');
             }
         });
 
@@ -84,7 +84,7 @@
                     io.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        }, { threshold: 0.15, rootMargin: '0px 0px -14% 0px' });
         reveals.forEach((el) => io.observe(el));
     } else {
         reveals.forEach((el) => el.classList.add('in'));
