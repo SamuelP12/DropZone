@@ -933,6 +933,138 @@ a.tile { cursor: pointer; }
 }
 
 /* =====================================================
+   Details ("guide") page
+   Sub-hero · navy intro · fluid blob grids
+   ===================================================== */
+
+.subhero {
+    padding: 150px var(--pad-x) clamp(28px, 4vh, 48px);
+    background: var(--bg);
+}
+.subhero-inner { max-width: var(--max-w); margin: 0 auto; }
+.subhero .location-label { margin: 0 0 18px; }
+.subhero .display { letter-spacing: -0.035em; max-width: 16ch; }
+.subhero .lede { margin-top: 20px; }
+
+/* "What's DZC?" — navy intro card */
+.intro { padding: 0 var(--pad-x) clamp(40px, 6vh, 72px); background: var(--bg); }
+.intro-card {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    background: var(--ink);
+    color: var(--dark-ink);
+    border-radius: var(--radius-xl);
+    padding: clamp(32px, 5vw, 64px);
+    box-shadow: var(--shadow-sm);
+}
+.intro-card .tile-label { color: rgba(255,255,255,0.7); margin: 0 0 16px; }
+.intro-card p {
+    font-size: clamp(16px, 1.4vw, 20px);
+    line-height: 1.6;
+    color: rgba(255,255,255,0.82);
+    margin: 0;
+    max-width: 72ch;
+}
+.intro-card p + p { margin-top: 16px; }
+.intro-card a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.intro-card a:hover { color: rgba(255,255,255,0.85); }
+
+/* Section group heading on the guide page (left-aligned, smaller than the centered .section-head) */
+.guide-head {
+    max-width: var(--max-w);
+    margin: 0 auto clamp(20px, 3vh, 32px);
+}
+.guide-head .display { font-size: clamp(28px, 3.2vw, 42px); letter-spacing: -0.03em; }
+.guide-head p { margin: 12px 0 0; color: var(--ink-3); font-size: 15px; max-width: 56ch; }
+
+/* Fluid grid of info "blobs" — auto-fit so rows always fill, no empty cells, no overlap */
+.info { padding: clamp(8px, 2vh, 20px) var(--pad-x) clamp(56px, 8vh, 96px); background: var(--bg); }
+.info:last-of-type { padding-bottom: clamp(80px, 12vh, 140px); }
+.info-grid {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+}
+.info-grid .tile { gap: 12px; }
+.info-grid .tile .tile-text { color: var(--ink-2); }
+
+/* Accent (blue) blob — same look as the homepage conference tile but WITHOUT
+   the bento grid-area, which would otherwise scramble this fluid grid. */
+.tile-feature {
+    background: linear-gradient(135deg, var(--accent-soft) 0%, var(--tile) 75%);
+}
+.tile-feature .tile-label { color: var(--accent); }
+.tile-feature .link-arrow { color: var(--accent); }
+.tile-feature:hover { background: linear-gradient(135deg, var(--accent-soft) 0%, var(--tile) 60%); }
+.tile-feature:hover .link-arrow { color: var(--accent-2); }
+.tile-feature:hover .link-arrow span { transform: translateX(4px); }
+
+/* Key/value fact list inside a blob */
+.fact-list {
+    list-style: none;
+    margin: 4px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+.fact-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    font-size: 14px;
+    color: var(--ink-2);
+    padding-bottom: 11px;
+    border-bottom: 1px solid var(--line);
+}
+.fact-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.fact-list strong {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+}
+
+/* Plain checklist inside a blob */
+.note-list {
+    list-style: none;
+    margin: 2px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.note-list li {
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.5;
+    padding-left: 18px;
+    position: relative;
+}
+.note-list li strong { color: var(--ink); font-weight: 600; }
+.note-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--accent);
+    opacity: 0.85;
+}
+
+@media (max-width: 480px) {
+    .subhero { padding-top: 116px; }
+    .intro-card { padding: 26px 22px; }
+    .info-grid { gap: 12px; }
+}
+
+/* =====================================================
    Mobile-only refinements (≤480px)
    Targets phones; desktop layout above is untouched.
    ===================================================== */
