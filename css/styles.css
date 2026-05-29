@@ -713,6 +713,26 @@ a.tile { cursor: pointer; }
 
 .price-card .btn { width: 100%; margin-top: auto; }
 
+/* "Members also get" divider inside a price card */
+.feat-label {
+    margin: 18px 0 0;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.price-card.featured .feat-label {
+    border-top-color: rgba(255,255,255,0.12);
+    color: #fff;
+}
+.feat-label + .price-feats {
+    border-top: none;
+    padding-top: 12px;
+}
+
 .price-note {
     text-align: center;
     margin: 56px auto 0;
