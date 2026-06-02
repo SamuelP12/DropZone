@@ -400,11 +400,11 @@ a.tile { cursor: pointer; }
     transition: transform 8s var(--ease-out);
 }
 .tile-space img {
-    object-position: center 88%;
-    transform: scale(1.10);
-    transform-origin: center bottom;
+    object-position: center 35%;
+    transform: scale(1.03);
+    transform-origin: center center;
 }
-.tile-space:hover img { transform: scale(1.14); }
+.tile-space:hover img { transform: scale(1.07); }
 .tile-outdoor img { object-position: center 45.5%; }
 .tile-photo:hover img { transform: scale(1.04); }
 .tile-photo-overlay {
@@ -595,7 +595,10 @@ a.tile { cursor: pointer; }
             "conf";
     }
     .tile { padding: 24px; }
-    .tile-space, .tile-outdoor { min-height: 280px; }
+    .tile-outdoor { min-height: 280px; }
+    /* Wide banner + high framing so the dark concrete floor drops out of view on phones */
+    .tile-space { min-height: 0; aspect-ratio: 2 / 1; }
+    .tile-space img { object-position: center 12%; }
 }
 
 /* =====================================================
