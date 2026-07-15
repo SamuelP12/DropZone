@@ -44,7 +44,7 @@
                 e.preventDefault();
                 e.stopImmediatePropagation();
                 window.open(
-                    'https://maps.apple.com/?q=303+Riverside+Avenue+Winthrop+WA',
+                    'https://www.google.com/maps/search/?api=1&query=303+Riverside+Avenue%2C+Winthrop%2C+WA',
                     '_blank',
                     'noopener'
                 );
@@ -88,6 +88,41 @@
         reveals.forEach((el) => io.observe(el));
     } else {
         reveals.forEach((el) => el.classList.add('in'));
+    }
+
+    // ----- Count-up stat animation -----
+    const counters = document.querySelectorAll('.count-up');
+    if (counters.length) {
+        const animateCount = (el) => {
+            const target = parseInt(el.dataset.countTo, 10);
+            if (reduceMotion) {
+                el.textContent = target;
+                return;
+            }
+            const duration = 900;
+            const start = performance.now();
+            const ease = (t) => 1 - Math.pow(1 - t, 3);
+            const tick = (now) => {
+                const t = Math.min(1, (now - start) / duration);
+                el.textContent = Math.round(target * ease(t));
+                if (t < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+        };
+
+        if ('IntersectionObserver' in window) {
+            const countIo = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        animateCount(entry.target);
+                        countIo.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.6 });
+            counters.forEach((el) => countIo.observe(el));
+        } else {
+            counters.forEach((el) => { el.textContent = el.dataset.countTo; });
+        }
     }
 
     // ----- Footer year -----
