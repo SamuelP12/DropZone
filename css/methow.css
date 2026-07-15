@@ -1,0 +1,77 @@
+/* =====================================================
+   Methow / Winthrop accent layer
+   Real Methow Valley topo backdrop (blurs away on scroll)
+   + Old-West ornament dividers. Additive — remove the
+   <link>/<script> tags + .dz-topo / .dz-ornament markup to undo.
+   ===================================================== */
+
+:root {
+    --saddle: #99622f;
+    --saddle-soft: rgba(153, 98, 47, 0.6);
+    --saddle-line: rgba(153, 98, 47, 0.85);
+}
+
+/* =====================================================
+   Topographic backdrop — a real topo map of the Methow
+   Valley (Winthrop). Faded off the headline, feathered at
+   the edges so there's no hard line, and blurred away on
+   scroll (driven by js/methow.js).
+   ===================================================== */
+.dz-topo {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: url('../images/topo-methow.png') no-repeat;
+    background-size: cover;
+    background-position: 66% 40%;
+    opacity: 0.30;                /* base; JS fades it as you scroll down */
+    filter: grayscale(1) sepia(0.42) brightness(1.02) contrast(1.02);
+    /* Sharp map: full in the middle, faded off the text, and fading OUT before
+       the bottom strip (where .dz-topo-blur takes over with a blurred version). */
+    -webkit-mask-image:
+        linear-gradient(100deg, transparent 14%, rgba(0,0,0,0.5) 40%, #000 66%),
+        linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.55) 7%, #000 18%, #000 72%, transparent 90%);
+            mask-image:
+        linear-gradient(100deg, transparent 14%, rgba(0,0,0,0.5) 40%, #000 66%),
+        linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.55) 7%, #000 18%, #000 72%, transparent 90%);
+    -webkit-mask-composite: source-in;
+            mask-composite: intersect;
+    will-change: filter, opacity;
+}
+/* The bottom strip of the map, blurred, dissolving into the white. */
+.dz-topo-blur {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: url('../images/topo-methow.png') no-repeat;
+    background-size: cover;
+    background-position: 66% 40%;
+    opacity: 0.30;
+    filter: grayscale(1) sepia(0.42) brightness(1.02) contrast(1.02) blur(6px);
+    -webkit-mask-image:
+        linear-gradient(100deg, transparent 14%, rgba(0,0,0,0.5) 40%, #000 66%),
+        linear-gradient(180deg, transparent 64%, #000 82%, #000 93%, transparent 100%);
+            mask-image:
+        linear-gradient(100deg, transparent 14%, rgba(0,0,0,0.5) 40%, #000 66%),
+        linear-gradient(180deg, transparent 64%, #000 82%, #000 93%, transparent 100%);
+    -webkit-mask-composite: source-in;
+            mask-composite: intersect;
+    will-change: filter, opacity;
+}
+
+/* =====================================================
+   Letterpress ornament divider (Old-West print motif)
+   ===================================================== */
+.dz-ornament {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; margin: 0 0 26px; line-height: 0;
+}
+.dz-ornament::before, .dz-ornament::after { content: ''; width: clamp(40px, 8vw, 90px); height: 1px; }
+.dz-ornament::before { background: linear-gradient(90deg, transparent, var(--saddle-line)); }
+.dz-ornament::after  { background: linear-gradient(90deg, var(--saddle-line), transparent); }
+.dz-ornament i {
+    width: 7px; height: 7px; transform: rotate(45deg);
+    border: 1.4px solid var(--saddle-line); display: block; flex: none;
+}

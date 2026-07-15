@@ -1,0 +1,14 @@
+.git
+.gitignore
+.DS_Store
+.vscode
+.idea
+node_modules
+*.log
+cert.pem
+key.pem
+.wrangler
+.dev.vars*
+.env*
+README.md
+wrangler.jsonc

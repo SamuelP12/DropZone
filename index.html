@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0b1f3a">
-    <title>Drop Zone — Coworking in the Methow Valley</title>
+    <title>Drop Zone Cowork: Coworking in the Methow Valley</title>
     <meta name="description" content="A coworking space in downtown Winthrop, WA. Fiber internet, 24/7 member access, and a desk waiting for you.">
 
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" href="css/styles.css?v=23">
+    <link rel="stylesheet" href="css/methow.css?v=16">
 </head>
 <body>
 
@@ -17,7 +18,7 @@
         <div class="nav-inner">
             <a href="#top" class="nav-logo">
                 <span class="dot"></span>
-                Drop&nbsp;Zone
+                Drop&nbsp;Zone&nbsp;Cowork
             </a>
             <nav class="nav-links">
                 <a href="#bento">Overview</a>
@@ -34,6 +35,11 @@
 
         <!-- Hero: typographic only -->
         <section class="hero">
+
+            <!-- Real topographic map of the Methow Valley, faded + masked off the text -->
+            <div class="dz-topo" aria-hidden="true"></div>
+            <div class="dz-topo-blur" aria-hidden="true"></div>
+
             <div class="hero-inner">
                 <p class="hero-meta reveal">
                     <span class="live"><span class="live-dot"></span>Open today · 303 Riverside Ave</span>
@@ -41,7 +47,7 @@
                 <h1 class="hero-title reveal">
                     A workspace<br/>in the <em>Methow</em>.
                 </h1>
-                <p class="hero-sub reveal">Coworking in downtown Winthrop, built for the people who came to the mountains to live well — and still ship serious work.</p>
+                <p class="hero-sub reveal">Coworking in downtown Winthrop, built for the people who come to be in the mountains, and still ship serious work.</p>
                 <div class="hero-actions reveal">
                     <a href="#pricing" class="btn btn-primary">Get a day pass · $34</a>
                     <a href="#bento" class="link-arrow">Take a look <span aria-hidden="true">↓</span></a>
@@ -56,7 +62,7 @@
 
                 <!-- Big photo: the space -->
                 <a href="#pricing" class="tile tile-photo tile-space reveal">
-                    <img src="images/space-interior.jpg?v=11" alt="Inside the Drop Zone coworking space — communal tables, big windows, exposed wood beams" />
+                    <img src="images/space-interior.jpg?v=11" alt="Inside the Drop Zone Cowork space: communal tables, big windows, exposed wood beams" />
                     <div class="tile-photo-overlay">
                         <p class="tile-label">The space</p>
                         <h3 class="tile-headline">Built for focus.</h3>
@@ -135,7 +141,7 @@
                 <a href="#" data-link="conference" class="tile tile-conference reveal">
                     <p class="tile-label">Bigger meetings</p>
                     <h3 class="tile-headline">Reserve the conference&nbsp;room.</h3>
-                    <p class="tile-text">Anyone can book — $20/hr for non‑members. Members get 4 hrs/mo free.</p>
+                    <p class="tile-text">Anyone can book; $20/hr for non‑members. Members get 4 hrs/mo free.</p>
                     <span class="link-arrow">Book a slot <span aria-hidden="true">→</span></span>
                 </a>
 
@@ -144,7 +150,9 @@
 
         <!-- Membership detail -->
         <section class="membership" id="pricing">
+
             <div class="section-head reveal">
+                <div class="dz-ornament" aria-hidden="true"><i></i></div>
                 <h2 class="display">Three ways&nbsp;in.</h2>
                 <p class="lede">Month‑to‑month. Cancel anytime. If your first day isn't great, full refund guaranteed.</p>
             </div>
@@ -194,17 +202,18 @@
                 </article>
             </div>
 
-            <p class="price-note reveal">Just need the conference room? Anyone can book it — <strong>$20/hr</strong> for non‑members, <strong>$10/hr</strong> for members beyond their included 4 hours per month. <a href="#" data-link="conference">Reserve the room →</a></p>
+            <p class="price-note reveal">Just need the conference room? Anyone can book it: <strong>$20/hr</strong> for non‑members, <strong>$10/hr</strong> for members beyond their included 4 hours per month. <a href="#" data-link="conference">Reserve the room →</a></p>
         </section>
 
         <!-- Location strip (text-led, not full-bleed) -->
         <section class="location" id="location">
+
             <div class="location-inner reveal">
                 <div class="location-text">
                     <p class="location-label">Find us</p>
                     <h2 class="display">In the center<br/>of Winthrop.</h2>
                     <p class="lede">Right on the main drag through downtown. Free street parking out front, a ground‑floor wheelchair‑accessible entry, and walking distance to coffee and the bookstore. Ten minutes from Twisp, twenty from Mazama.</p>
-                    <a href="https://maps.apple.com/?q=303+Riverside+Avenue+Winthrop+WA" target="_blank" rel="noopener" class="link-arrow">Open in Maps <span aria-hidden="true">→</span></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=303+Riverside+Avenue%2C+Winthrop%2C+WA" target="_blank" rel="noopener" class="link-arrow">Open in Maps <span aria-hidden="true">→</span></a>
                 </div>
                 <div class="location-card">
                     <div class="card-row">
@@ -233,13 +242,15 @@
 
         <!-- FAQ -->
         <section class="faq" id="faq">
+
             <div class="section-head reveal">
+                <div class="dz-ornament" aria-hidden="true"><i></i></div>
                 <h2 class="display">Questions.</h2>
             </div>
             <div class="faq-list">
                 <details class="reveal" open>
                     <summary>Can I try it before I commit?</summary>
-                    <p>Yes — grab a $34 day pass. If your first day isn't great, email us and we'll refund it.</p>
+                    <p>Yes, grab a $34 day pass. If your first day isn't great, email us and we'll refund it.</p>
                 </details>
                 <details class="reveal">
                     <summary>Can I bring a guest?</summary>
@@ -251,11 +262,11 @@
                 </details>
                 <details class="reveal">
                     <summary>Can I rent the conference room without a membership?</summary>
-                    <p>Yes — no day pass required. $20 per hour for non‑members. Members get 4 hours per month included; additional time is $10/hr. <a href="#" data-link="conference">Reserve it here.</a></p>
+                    <p>Yes, no day pass required. $20 per hour for non‑members. Members get 4 hours per month included; additional time is $10/hr. <a href="#" data-link="conference">Reserve it here.</a></p>
                 </details>
                 <details class="reveal">
                     <summary>What happens when the power or internet goes out?</summary>
-                    <p>Battery backup keeps essential lights and our router running through short outages. The fiber line is the most reliable connection in the valley, but if it does drop, you'll know within seconds — and so will we.</p>
+                    <p>Battery backup keeps essential lights and our router running through short outages. The fiber line is the most reliable connection in the valley, but if it does drop, you'll know within seconds, and so will we.</p>
                 </details>
             </div>
             <p class="faq-footer reveal">More questions? Email us at <a href="mailto:hello@dropzonecowork.com">hello@dropzonecowork.com</a>.</p>
@@ -264,9 +275,10 @@
     </main>
 
     <footer class="footer">
+
         <div class="footer-top">
             <div class="footer-brand">
-                <p class="footer-logo"><span class="dot"></span> Drop Zone</p>
+                <p class="footer-logo"><span class="dot"></span> Drop Zone Cowork</p>
                 <p class="footer-tag">Coworking · Winthrop, WA</p>
             </div>
             <div class="footer-links">
@@ -296,5 +308,6 @@
 
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
     <script src="js/main.js?v=4"></script>
+    <script src="js/methow.js?v=12"></script>
 </body>
 </html>
